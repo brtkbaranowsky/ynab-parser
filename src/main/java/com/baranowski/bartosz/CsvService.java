@@ -12,13 +12,13 @@ public class CsvService {
 
     public List<String> prepareCsvForParser(String csvPath, int leadingRows, int tailingRows) {
         final String encoding = "ISO-8859-2";
-        List<String> filesContent = read(csvPath, encoding);
+        List<String> filesContent = readCsvFromPath(csvPath, encoding);
         filesContent = cutLeadingAndTailingRows(filesContent, leadingRows, tailingRows);
         return filesContent.stream().map(x -> x.concat("\n")).collect(Collectors.toList());
     }
 
-    private List<String> read(String path, String encoding) {
-        Path filePath = Paths.get(path);
+    private List<String> readCsvFromPath(String csvPath, String encoding) {
+        Path filePath = Paths.get(csvPath);
         try {
             return Files.readAllLines(filePath, Charset.forName(encoding));
         } catch (IOException e) {
