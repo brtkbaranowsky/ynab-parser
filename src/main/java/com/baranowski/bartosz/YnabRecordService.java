@@ -1,9 +1,7 @@
 package com.baranowski.bartosz;
 
-import com.baranowski.bartosz.ynab.ConfigConstants;
-
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static java.util.regex.Pattern.quote;
@@ -11,34 +9,48 @@ import static java.util.regex.Pattern.quote;
 public class YnabRecordService {
 
     List<YnabRecord> parseRecords(List<RowRecord> rowRecords, Config config) {
-        final List<Integer> configList = parseConfig(config);
-        return rowRecords.stream().map(record -> parseSingleRecord(record, configList)).collect(Collectors.toList());
+        return rowRecords.stream().map(record -> parseSingleRecord(record, config)).collect(Collectors.toList());
     }
 
-    private List<Integer> parseConfig(Config config) {
-        Integer indexOfDate = config.indexMap.get(ConfigConstants.DATE_COLUMN_NAME);
-        Integer indexOfPayee = config.indexMap.get(ConfigConstants.PAYEE_COLUMN_NAME);
-        Integer indexOfTitle = config.indexMap.get(ConfigConstants.TITLE_COLUMN_NAME);
-        Integer indexOfAmount = config.indexMap.get(ConfigConstants.AMOUNT_COLUMN_NAME);
-        Integer indexOfBlockage = config.indexMap.get(ConfigConstants.BLOCKAGE_COLUMN_NAME);
-        return Arrays.asList(indexOfDate, indexOfPayee, indexOfTitle, indexOfAmount, indexOfBlockage);
-    }
 
-    private YnabRecord parseSingleRecord(RowRecord record, List<Integer> configList) {
+    private YnabRecord parseSingleRecord(RowRecord record, Config config) {
 
-        // Zabezpieczyc gety 
-        // Dodac Enuma do indexow z configu
-
-
-        String date = record.getField(configList.get(0)).get().replaceAll(quote(";"), "");
+        Optional<String> date = record.getField(config.getDataColumnIndex());
         String payee = "";
-        String memo = record.getField(configList.get(1)).get().replaceAll(quote(";"), "").replaceAll(quote("\""), "").replaceAll(quote(","), " ");
-        String additionalMemo = record.getField(configList.get(1)).get().replaceAll(quote(";"), "").replaceAll(quote("\""), "").replaceAll(quote(","), " ");
-        memo = memo.concat(" - ").concat(additionalMemo);
-        String inflow = record.getField(configList.get(3)).get().replaceAll(quote(";"), "");
-        inflow = !inflow.isBlank()
-                ? record.getField(configList.get(3)).get().replaceAll(quote(";"), "").replaceAll(quote(","), ".")
-                : record.getField(configList.get(4)).get().replaceAll(quote(";"), "").replaceAll(quote("\""), ".");
-        return new YnabRecord(date, payee, memo, inflow);
+        Optional<String> memo = record.getField(config.getPayeeColumnIndex());
+        Optional<String> additionalMemo = record.getField(config.getTitleColumnIndex());
+        if (memo.isPresent() && additionalMemo.isPresent()) {
+            memo = Optional.of(memo.get().concat(" - ").concat(additionalMemo.get()));
+        }
+
+
+        Optional<String> inflow = record.getField(config.getAmountColumnIndex());
+        inflow = cleanAmount(inflow.get());
+        inflow = inflow.get().isBlank()
+                ? record.getField(config.getBlockageColumnIndex())
+                : record.getField(config.getAmountColumnIndex());
+
+        date = cleanDate(date.get());
+        memo = cleanMemo(memo.get());
+        inflow = cleanAmount(inflow.get());
+
+        return new YnabRecord(date.get(), payee, memo.get(), inflow.get());
+    }
+
+    private Optional<String> cleanDate(String date) {
+        if (date.isEmpty()) {
+            throw new EmptyDateException("Date cannot be empty!");
+        }
+        return Optional.of(date.replaceAll(quote(";"), ""));
+    }
+
+    private Optional<String> cleanAmount(String amount) {
+        return Optional.of(amount.replaceAll(quote(";"), ""));
+    }
+
+    private Optional<String> cleanMemo(String memo) {
+        return Optional.of(memo.replaceAll(quote(";"), "")
+                .replaceAll(quote("\""), "")
+                .replaceAll(quote(","), " "));
     }
 }

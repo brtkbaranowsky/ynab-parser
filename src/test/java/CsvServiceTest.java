@@ -1,14 +1,11 @@
-import com.baranowski.bartosz.CsvService;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
 public class CsvServiceTest {
 
-    @Test
-    public void cutLeadingLinesShouldReturnJustDates() {
-        CsvService csvService = new CsvService();
-        final List<String> file = csvService.prepareCsvForParser("sample.csv", 20, 3);
-        System.out.println(file);
-    }
+//    @Test
+//    public void cutLeadingLinesShouldReturnJustDates() {
+//        CsvService csvService = new CsvService();
+//        CsvConfig csvConfig = new CsvConfig("sample.csv", "ISO-8859-2", 20, 3);
+//
+//        final List<String> file = csvService.prepareCsvForParser(csvConfig);
+//        System.out.println(file);
+//    }
 }

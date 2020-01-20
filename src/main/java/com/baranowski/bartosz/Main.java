@@ -11,39 +11,32 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
-import static com.baranowski.bartosz.ynab.YnabCostants.*;
+import static com.baranowski.bartosz.ynab.YnabCostants.YNAB_HEADER;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        final String ynabHeader = DATE_COLUMN_NAME + SEPARATOR + PAYEE_COLUMN_NAME + SEPARATOR + MEMO_COLUMN_NAME + SEPARATOR + AMOUNT_COLUMN_NAME;
+        final String ynabHeader = YNAB_HEADER;
+        final String configFilePath = "ynabParserConfig.ini";
         final String outputFileName = "Ynab_csv_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm")) + ".csv";
-
-        CsvService csvService = new CsvService();
-
-        List<String> filesContent = csvService.prepareCsvForParser("sample.csv",20, 3);
-        String stringFromList = filesContent.stream().collect(Collectors.joining("/"));
-        YnabGrammarLexer ynabGrammarLexer = new YnabGrammarLexer(CharStreams.fromString(stringFromList));
-        YnabGrammarParser ynabGrammarParser = new YnabGrammarParser(new CommonTokenStream(ynabGrammarLexer));
         IngVisitor ingVisitor = new IngVisitor();
+        CsvService csvService = new CsvService();
+        ConfigService configService = new ConfigService();
+        Config csvConfig = configService.readConfigurationFile(configFilePath);
+        YnabRecordService ynabRecordService = new YnabRecordService();
+
+        List<String> filesContent = csvService.prepareCsvForParser(csvConfig);
+
+        String filesContentString = String.join("", filesContent);
+        YnabGrammarLexer ynabGrammarLexer = new YnabGrammarLexer(CharStreams.fromString(filesContentString));
+        YnabGrammarParser ynabGrammarParser = new YnabGrammarParser(new CommonTokenStream(ynabGrammarLexer));
         ingVisitor.visitFile(ynabGrammarParser.file());
 
-        YnabRecordService ynabRecordService = new YnabRecordService();
-        Map<String, Integer> configMap = new HashMap<>();
-        configMap.put("DATE_INDEX", 0);
-        configMap.put("PAYEE_INDEX", 2);
-        configMap.put("TITLE_INDEX", 3);
-        configMap.put("AMOUNT_INDEX", 8);
-        configMap.put("BLOCKAGE_INDEX", 10);
-        Config config = new Config(configMap);
-
-        final List<YnabRecord> ynabRecords = ynabRecordService.parseRecords(ingVisitor.getRows(), config);
+        final List<YnabRecord> ynabRecords = ynabRecordService.parseRecords(ingVisitor.getRows(), csvConfig);
         System.out.println(ynabRecords);
+
         try (FileWriter fileWriter = new FileWriter(outputFileName); BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
             bufferedWriter.write(ynabHeader + "\n");
 

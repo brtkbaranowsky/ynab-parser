@@ -1,11 +1,19 @@
 package com.baranowski.bartosz;
 
-import java.util.Map;
+import lombok.Builder;
+import lombok.Getter;
 
+@Builder
+@Getter
 public class Config {
-    Map<String,Integer> indexMap;
+    private String csvPath;
+    private String encoding;
+    private int leadingRows;
+    private int tailingRows;
 
-    public Config(Map<String, Integer> indexMap) {
-        this.indexMap = indexMap;
-    }
+    private int dataColumnIndex;
+    private int payeeColumnIndex;
+    private int titleColumnIndex;
+    private int amountColumnIndex;
+    private int blockageColumnIndex;
 }

@@ -10,10 +10,8 @@ import java.util.stream.Collectors;
 
 public class CsvService {
 
-    public List<String> prepareCsvForParser(CsvConfig csvConfig) {
-        String csvPath = csvConfig.getCsvPath();
-        String encoding = csvConfig.getEncoding();
-        List<String> filesContent = readCsvFromPath(csvPath, encoding);
+    public List<String> prepareCsvForParser(Config csvConfig) {
+        List<String> filesContent = readCsvFromPath(csvConfig.getCsvPath(), csvConfig.getEncoding());
         filesContent = cutLeadingAndTailingRows(filesContent, csvConfig);
         return filesContent.stream().map(x -> x.concat("\n")).collect(Collectors.toList());
     }
@@ -27,7 +25,7 @@ public class CsvService {
         }
     }
 
-    private List<String> cutLeadingAndTailingRows(List<String> filesContent, CsvConfig csvConfig) {
+    private List<String> cutLeadingAndTailingRows(List<String> filesContent, Config csvConfig) {
         int leadingRows = csvConfig.getLeadingRows();
         int tailingRows = csvConfig.getTailingRows();
         return filesContent.subList(leadingRows, filesContent.size() - tailingRows);
