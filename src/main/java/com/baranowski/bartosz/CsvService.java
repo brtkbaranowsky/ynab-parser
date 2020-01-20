@@ -10,10 +10,11 @@ import java.util.stream.Collectors;
 
 public class CsvService {
 
-    public List<String> prepareCsvForParser(String csvPath, int leadingRows, int tailingRows) {
-        final String encoding = "ISO-8859-2";
+    public List<String> prepareCsvForParser(CsvConfig csvConfig) {
+        String csvPath = csvConfig.getCsvPath();
+        String encoding = csvConfig.getEncoding();
         List<String> filesContent = readCsvFromPath(csvPath, encoding);
-        filesContent = cutLeadingAndTailingRows(filesContent, leadingRows, tailingRows);
+        filesContent = cutLeadingAndTailingRows(filesContent, csvConfig);
         return filesContent.stream().map(x -> x.concat("\n")).collect(Collectors.toList());
     }
 
@@ -22,11 +23,13 @@ public class CsvService {
         try {
             return Files.readAllLines(filePath, Charset.forName(encoding));
         } catch (IOException e) {
-            throw new NoCsvFileException(String.format("Correct csv file not found on path %s", path));
+            throw new NoCsvFileException(String.format("Correct csv file not found on path %s", csvPath));
         }
     }
 
-    private List<String> cutLeadingAndTailingRows(List<String> filesContent, int leadingRows, int tailingRows) {
+    private List<String> cutLeadingAndTailingRows(List<String> filesContent, CsvConfig csvConfig) {
+        int leadingRows = csvConfig.getLeadingRows();
+        int tailingRows = csvConfig.getTailingRows();
         return filesContent.subList(leadingRows, filesContent.size() - tailingRows);
     }
 }
