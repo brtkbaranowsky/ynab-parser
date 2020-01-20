@@ -1,0 +1,42 @@
+"Lista transakcji";;;;;"ING Bank Œl¹ski S.A. ul. Sokolska 34, 40-086 Katowice www.ing.pl";;;;;;;;;;;;;;;
+"Dokument nr 0065473202_160120";
+"Wygenerowany dnia: 2020-01-16, 12:26";;;;;;;;;;;;;;;;;;;;
+
+"Dane U¿ytkownika:";
+"BARANOWSKI BARTOSZ, PETRYKIEWICZA  12 20-148 LUBLIN";
+
+"Wybrane rachunki:";
+"KONTO Z LWEM Direct (PLN)";;"24 1050 1953 1000 0091 5047 0780";
+"Otwarte Konto Oszczêdnoœciowe (PLN)";;"23 1050 1953 1000 0091 5047 0798";
+
+"Zastosowane kryteria wyboru";;;;;"Podsumowanie";;
+
+"Zakres dat:";"2020-01-11 - 2020-01-16";"Typy transakcji:";"wszystkie";;"Liczba transakcji:";19;
+
+;;;;;"Suma uznañ (3):";2016,00;PLN;;;;;;;;;;;;;
+
+"Ukryto saldo po transakcji";;;;;"Suma obci¹¿eñ (16):";1604,94;PLN;;;;;;;;;;;;;
+
+"Data transakcji";"Data ksiêgowania";"Dane kontrahenta";"Tytu³";"Nr rachunku";"Nazwa banku";"Szczegó³y";"Nr transakcji";"Kwota transakcji (waluta rachunku)";"Waluta";"Kwota blokady/zwolnienie blokady";"Waluta";"Kwota p³atnoœci w walucie";"Waluta";"Konto";;;;;;
+2020-01-16;;" SLIMAK SP Z O O HALINOW PL ";" P³atnoœæ kart¹ 16.01.2020 Nr karty 4246xx5402";'';"";"";;;;-6,00;PLN;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-15;2020-01-16;" tpay.com, ul. Œw. Marcin 73/6, Poznañ ";" P³atnoœæ BLIK 15.01.2020 Nr transakcji 49343806499 http://jakdojade.pl";'';"";"TR.BLIK -1.60  ";'202001664002324966';-1,60;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-15;2020-01-15;" tpay.com, ul. Œw. Marcin 73/6, Poznañ ";" P³atnoœæ BLIK 15.01.2020 Nr transakcji 49342298678 http://jakdojade.pl";'79105000281000002410093963 ';"ING Bank Œl¹ski S.A.";"TR.BLIK -1.60  ";'202001564005618799';-1,60;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-15;;" JMP SA BIEDRONKA 1667 LUBLIN PL ";" P³atnoœæ kart¹ 15.01.2020 Nr karty 4246xx5402";'';"";"";;;;-11,59;PLN;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-15;;" SLIMAK SP Z O O HALINOW PL ";" P³atnoœæ kart¹ 15.01.2020 Nr karty 4246xx5402";'';"";"";;;;-8,00;PLN;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-15;2020-01-15;" ZABKA Z6360 K.1, UL. DRA WITOLDA CHODZKI 1, LUBLIN ";" P³atnoœæ BLIK 15.01.2020 Nr transakcji 49333804547";'79105000281000002410093963 ';"ING Bank Œl¹ski S.A.";"TR.BLIK -13.00  ";'202001564002336908';-13,00;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-14;2020-01-16;" WYROBY GARMAZERYJNE LUBLIN PL ";" P³atnoœæ kart¹ 14.01.2020 Nr karty 4246xx5402";'1915031/19730 ';"";"TR.KART -22.74  ";'202001697301395887';-22,74;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-14;2020-01-16;" SLIMAK SP Z O O HALINOW PL ";" P³atnoœæ kart¹ 14.01.2020 Nr karty 4246xx5402";'1915031/19730 ';"";"TR.KART -16.00  ";'202001697303796133';-16,00;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-13;2020-01-14;" tpay.com, ul. Œw. Marcin 73/6, Poznañ ";" P³atnoœæ BLIK 13.01.2020 Nr transakcji 49304716773 http://jakdojade.pl";'';"";"TR.BLIK -1.60  ";'202001464002327698';-1,60;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-13;2020-01-13;" tpay.com, ul. Œw. Marcin 73/6, Poznañ ";" P³atnoœæ BLIK 13.01.2020 Nr transakcji 49305142702 http://jakdojade.pl";'79105000281000002410093963 ';"ING Bank Œl¹ski S.A.";"TR.BLIK -1.60  ";'202001364005753691';-1,60;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-13;2020-01-13;" ZABKA Z6315 K.1, UL. OBYWATELSKA 9 l.6, LUBLIN ";" P³atnoœæ BLIK 13.01.2020 Nr transakcji 49295131435";'79105000281000002410093963 ';"ING Bank Œl¹ski S.A.";"TR.BLIK -11.98  ";'202001364005733276';-11,98;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-13;2020-01-13;" SYLWESTER WRÓBLEWSKI ";" £owsanek Od: 48500713690 Do: 48501625083";'50102055581111186856700064 ';"PKOBP Departament Rozliczeñ";"P.BLIK 16.00  ";'202001364002512452';16,00;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-12;2020-01-13;" Justyna Zabiega³a ";" Karty Gwint";'76105012721000009074902215 ';"ING Bank Œl¹ski S.A.";"PRZELEW  ";'202001397201555335';-130,00;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-11;2020-01-13;" JMP SA BIEDRONKA 3651 LUBLIN PL ";" P³atnoœæ kart¹ 11.01.2020 Nr karty 4246xx5402";'1915031/19730 ';"";"TR.KART -117.63  ";'202001397308331223';-117,63;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-11;2020-01-11;" PAWE£ JAN SOBOCKI, ul. Szwajcarska 11 m.2, 20-861 LUBLIN ";" Za zdrowie";'80114020040000350240552082 ';"mBank Oddzia³ Bankowoœci";"PRZELEW  ";'202001197202020220';-250,00;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-11;2020-01-11;" BARANOWSKI BARTOSZ, PETRYKIEWICZA  12, LUBLIN ";" Wp³ata na cel Motoryzacja";'24105019531000009150470780 ';"ING Bank Œl¹ski S.A.";"PRZELEW  ";'202001197202017090';1000,00;PLN;;;;;"Cele i oszczêdnoœci";;;;;;
+2020-01-11;2020-01-11;" BARANOWSKI BARTOSZ, PETRYKIEWICZA  12, LUBLIN ";" Wp³ata na cel Motoryzacja";'23105019531000009150470798 ';"ING Bank Œl¹ski S.A.";"PRZELEW  ";'202001197202017090';-1000,00;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-11;2020-01-11;" BUSNIUK OLEKSANDRA, UNICKA 3/23, 20-126 LUBLIN ";" Samochód";'89105019531000009703973629 ';"ING Bank Œl¹ski S.A.";"PRZELEW  ";'202001197202015375';1000,00;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+2020-01-11;2020-01-13;" BPDOROHUCZA 865 2 TRAWNIKI PL ";" P³atnoœæ kart¹ 11.01.2020 Nr karty 4246xx5402";'1915031/19730 ';"";"TR.KART -11.60  ";'202001397305471761';-11,60;PLN;;;;;"KONTO Z LWEM Direct";;;;;;
+
+
+"Dokument ma charakter informacyjny, nie stanowi dowodu ksiêgowego";
