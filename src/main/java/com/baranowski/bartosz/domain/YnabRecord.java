@@ -1,4 +1,4 @@
-package com.baranowski.bartosz;
+package com.baranowski.bartosz.domain;
 
 public class YnabRecord {
     String date;

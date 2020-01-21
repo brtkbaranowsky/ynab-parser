@@ -1,4 +1,7 @@
-package com.baranowski.bartosz;
+package com.baranowski.bartosz.services;
+
+import com.baranowski.bartosz.domain.Config;
+import com.baranowski.bartosz.exceptions.NoCsvFileException;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -10,10 +13,12 @@ import java.util.stream.Collectors;
 
 public class CsvService {
 
-    public List<String> prepareCsvForParser(Config csvConfig) {
+    public String prepareCsvForParser(Config csvConfig) {
         List<String> filesContent = readCsvFromPath(csvConfig.getCsvPath(), csvConfig.getEncoding());
         filesContent = cutLeadingAndTailingRows(filesContent, csvConfig);
-        return filesContent.stream().map(x -> x.concat("\n")).collect(Collectors.toList());
+        filesContent.stream().map(x -> x.concat("\n")).collect(Collectors.toList());
+        return String.join("", filesContent);
+
     }
 
     private List<String> readCsvFromPath(String csvPath, String encoding) {

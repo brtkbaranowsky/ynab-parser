@@ -1,4 +1,4 @@
-package com.baranowski.bartosz;
+package com.baranowski.bartosz.exceptions;
 
 public class EmptyDateException extends RuntimeException {
     public EmptyDateException(String message) {

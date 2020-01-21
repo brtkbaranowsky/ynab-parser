@@ -1,4 +1,9 @@
-package com.baranowski.bartosz;
+package com.baranowski.bartosz.services;
+
+import com.baranowski.bartosz.domain.Config;
+import com.baranowski.bartosz.domain.RowRecord;
+import com.baranowski.bartosz.domain.YnabRecord;
+import com.baranowski.bartosz.exceptions.EmptyDateException;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +13,7 @@ import static java.util.regex.Pattern.quote;
 
 public class YnabRecordService {
 
-    List<YnabRecord> parseRecords(List<RowRecord> rowRecords, Config config) {
+    public List<YnabRecord> parseRecords(List<RowRecord> rowRecords, Config config) {
         return rowRecords.stream().map(record -> parseSingleRecord(record, config)).collect(Collectors.toList());
     }
 

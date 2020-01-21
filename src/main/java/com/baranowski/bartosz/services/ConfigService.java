@@ -1,5 +1,7 @@
-package com.baranowski.bartosz;
+package com.baranowski.bartosz.services;
 
+import com.baranowski.bartosz.domain.Config;
+import com.baranowski.bartosz.exceptions.InvalidFieldException;
 import org.apache.commons.configuration2.INIConfiguration;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;

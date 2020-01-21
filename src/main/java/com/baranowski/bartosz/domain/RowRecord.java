@@ -1,4 +1,4 @@
-package com.baranowski.bartosz;
+package com.baranowski.bartosz.domain;
 
 import java.util.ArrayList;
 import java.util.List;

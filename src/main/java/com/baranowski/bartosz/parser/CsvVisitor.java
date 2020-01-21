@@ -1,13 +1,13 @@
 package com.baranowski.bartosz.parser;
 
-import com.baranowski.bartosz.RowRecord;
+import com.baranowski.bartosz.domain.RowRecord;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.baranowski.bartosz.parser.YnabGrammarParser.*;
 
-public class IngVisitor extends YnabGrammarBaseVisitor {
+public class CsvVisitor extends YnabGrammarBaseVisitor {
 
     private List<RowRecord> rows;
 
