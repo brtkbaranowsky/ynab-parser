@@ -13,7 +13,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <antlr4-runtime.version>4.7.2</antlr4-runtime.version>
         <lombok.version>1.18.10</lombok.version>
-        <commons-configuration2.version>2.6</commons-configuration2.version>
+        <commons-configuration2.version>2.10.1</commons-configuration2.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <main-class>com.baranowski.bartosz.Main</main-class>
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
